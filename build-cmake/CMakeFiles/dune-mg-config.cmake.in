@@ -1,0 +1,31 @@
+if(NOT dune-mg_FOUND)
+# Whether this module is installed or not
+set(dune-mg_INSTALLED @MODULE_INSTALLED@)
+
+# Settings specific to the module
+@dune-mg_INIT@
+# Package initialization
+@PACKAGE_INIT@
+
+#report other information
+set_and_check(dune-mg_PREFIX "${PACKAGE_PREFIX_DIR}")
+set_and_check(dune-mg_INCLUDE_DIRS "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")
+set(dune-mg_CXX_FLAGS "-std=c++14 -DNDEBUG -O3 -ffast-math")
+set(dune-mg_CXX_FLAGS_DEBUG "-g")
+set(dune-mg_CXX_FLAGS_MINSIZEREL "-Os -DNDEBUG")
+set(dune-mg_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+set(dune-mg_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -DNDEBUG")
+set(dune-mg_DEPENDS "@dune-mg_DEPENDS@")
+set(dune-mg_SUGGESTS "@dune-mg_SUGGESTS@")
+set(dune-mg_MODULE_PATH "@PACKAGE_DUNE_INSTALL_MODULEDIR@")
+set(dune-mg_LIBRARIES "@DUNE_MODULE_LIBRARIES@")
+
+# Lines that are set by the CMake build system via the variable DUNE_CUSTOM_PKG_CONFIG_SECTION
+
+
+#import the target
+if(dune-mg_LIBRARIES)
+  get_filename_component(_dir "${CMAKE_CURRENT_LIST_FILE}" PATH)
+  include("${_dir}/dune-mg-targets.cmake")
+endif()
+endif()

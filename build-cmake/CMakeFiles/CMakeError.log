@@ -1,0 +1,1287 @@
+Performing C++ SOURCE FILE Test compiler_supports_cxx17 failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d93ae/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d93ae.dir/build.make CMakeFiles/cmTC_d93ae.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d93ae.dir/src.cxx.o
+/usr/bin/c++     -DNDEBUG -O3 -ffast-math -Dcompiler_supports_cxx17  -std=c++17 -fPIE   -o CMakeFiles/cmTC_d93ae.dir/src.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:5:14: error: expected ‘{’ before ‘::’ token
+   namespace A::B {
+              ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:5:16: error: ‘B’ in namespace ‘::’ does not name a type
+   namespace A::B {
+                ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx: In function ‘int A::main()’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:11:34: error: ‘void_t’ is not a member of ‘std’
+     return not std::is_same<void,std::void_t<A::B::T> >{};
+                                  ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:11:34: error: ‘void_t’ is not a member of ‘std’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:11:46: error: ‘B’ is not a member of ‘A’
+     return not std::is_same<void,std::void_t<A::B::T> >{};
+                                              ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:11:53: error: template argument 2 is invalid
+     return not std::is_same<void,std::void_t<A::B::T> >{};
+                                                     ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:11:56: error: expected primary-expression before ‘{’ token
+     return not std::is_same<void,std::void_t<A::B::T> >{};
+                                                        ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:11:56: error: expected ‘;’ before ‘{’ token
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx: At global scope:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:12:3: error: expected ‘}’ at end of input
+   }
+   ^
+CMakeFiles/cmTC_d93ae.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d93ae.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_d93ae.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d93ae/fast' failed
+make: *** [cmTC_d93ae/fast] Error 2
+
+Source file was:
+
+  #include <type_traits>
+
+  // nested namespaces are a C++17 compiler feature
+  namespace A::B {
+    using T = int;
+  }
+
+  int main() {
+    // std::void_t is a C++17 library feature
+    return not std::is_same<void,std::void_t<A::B::T> >{};
+  }
+  
+Performing C++ SOURCE FILE Test DUNE_HAVE_CXX_CLASS_TEMPLATE_ARGUMENT_DEDUCTION failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6e0be/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6e0be.dir/build.make CMakeFiles/cmTC_6e0be.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6e0be.dir/src.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math -DDUNE_HAVE_CXX_CLASS_TEMPLATE_ARGUMENT_DEDUCTION -fPIE   -o CMakeFiles/cmTC_6e0be.dir/src.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:18:28: error: expected constructor, destructor, or type conversion before ‘;’ token
+     -> A<typename T2::type>;
+                            ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:22:7: error: missing template arguments before ‘a1’
+     A a1(1);
+       ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:23:19: error: ‘is_same_v’ is not a member of ‘std’
+     static_assert(std::is_same_v< decltype(a1), A<int> >);
+                   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:23:44: error: ‘a1’ was not declared in this scope
+     static_assert(std::is_same_v< decltype(a1), A<int> >);
+                                            ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:23:35: error: expected primary-expression before ‘decltype’
+     static_assert(std::is_same_v< decltype(a1), A<int> >);
+                                   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:23:35: error: expected ‘,’ before ‘decltype’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:23:35: error: expected string-literal before ‘decltype’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:23:35: error: expected ‘)’ before ‘decltype’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:26:7: error: missing template arguments before ‘a2’
+     A a2(b, b);
+       ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:19: error: ‘is_same_v’ is not a member of ‘std’
+     static_assert(std::is_same_v< decltype(a2), A<bool> >);
+                   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:44: error: ‘a2’ was not declared in this scope
+     static_assert(std::is_same_v< decltype(a2), A<bool> >);
+                                            ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:35: error: expected primary-expression before ‘decltype’
+     static_assert(std::is_same_v< decltype(a2), A<bool> >);
+                                   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:35: error: expected ‘,’ before ‘decltype’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:35: error: expected string-literal before ‘decltype’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:35: error: expected ‘)’ before ‘decltype’
+CMakeFiles/cmTC_6e0be.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_6e0be.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_6e0be.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_6e0be/fast' failed
+make: *** [cmTC_6e0be/fast] Error 2
+
+Source file was:
+
+  #include <type_traits>
+
+  template<typename T1>
+  struct A {
+    A(T1) {}
+
+    template<typename T2>
+    A(T2, T2) {}
+  };
+
+  struct B {
+    using type = bool;
+  };
+
+  template<typename T2>
+  A(T2, T2)
+    -> A<typename T2::type>;
+
+  int main()
+  {
+    A a1(1);
+    static_assert(std::is_same_v< decltype(a1), A<int> >);
+
+    B b;
+    A a2(b, b);
+    static_assert(std::is_same_v< decltype(a2), A<bool> >);
+  }
+
+Performing C++ SOURCE FILE Test DUNE_HAVE_CXX_OPTIONAL failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2b9ce/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2b9ce.dir/build.make CMakeFiles/cmTC_2b9ce.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2b9ce.dir/src.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math -DDUNE_HAVE_CXX_OPTIONAL -fPIE   -o CMakeFiles/cmTC_2b9ce.dir/src.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:2:22: fatal error: optional: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_2b9ce.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_2b9ce.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_2b9ce.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_2b9ce/fast' failed
+make: *** [cmTC_2b9ce/fast] Error 2
+
+Source file was:
+
+  #include <optional>
+  #include <string>
+
+  int main()
+  {
+    std::optional< std::string > a;
+    std::string b = a.value_or( "empty" );
+  }
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ad0a5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ad0a5.dir/build.make CMakeFiles/cmTC_ad0a5.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ad0a5.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -fPIE   -o CMakeFiles/cmTC_ad0a5.dir/CheckSymbolExists.c.o   -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ad0a5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad0a5.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_ad0a5.dir/CheckSymbolExists.c.o  -o cmTC_ad0a5 -rdynamic 
+CMakeFiles/cmTC_ad0a5.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ad0a5.dir/build.make:97: recipe for target 'cmTC_ad0a5' failed
+make[1]: *** [cmTC_ad0a5] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ad0a5/fast' failed
+make: *** [cmTC_ad0a5/fast] Error 2
+
+File /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Performing C++ SOURCE FILE Test DUNE_SUPPORTS_CXX_THROW_IN_CONSTEXPR failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8e0f3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8e0f3.dir/build.make CMakeFiles/cmTC_8e0f3.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8e0f3.dir/src.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math -DDUNE_SUPPORTS_CXX_THROW_IN_CONSTEXPR -fPIE   -o CMakeFiles/cmTC_8e0f3.dir/src.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx: In function ‘constexpr int foo(int)’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:10:3: error: expression ‘<throw-expression>’ is not a constant-expression
+   }
+   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:14:5: error: non-constant condition for static assertion
+     static_assert(foo(4) == 16, "test failed");
+     ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:14:22: error: ‘constexpr int foo(int)’ called in a constant expression
+     static_assert(foo(4) == 16, "test failed");
+                      ^
+CMakeFiles/cmTC_8e0f3.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8e0f3.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_8e0f3.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8e0f3/fast' failed
+make: *** [cmTC_8e0f3/fast] Error 2
+
+Source file was:
+
+  constexpr int foo(int bar)
+  {
+    if (bar < 0)
+      throw bar;
+    int r = 1;
+    for (int i = 0 ; i < bar ; ++i)
+      r += r;
+    return r;
+  }
+
+  int main()
+  {
+    static_assert(foo(4) == 16, "test failed");
+    return 0;
+  }
+
+Determining if the std::move<std::bool_constant<true>> exist failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7394e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7394e.dir/build.make CMakeFiles/cmTC_7394e.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7394e.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math  -fPIE   -o CMakeFiles/cmTC_7394e.dir/CheckSymbolExists.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:12: warning: extra tokens at end of #ifndef directive
+ #ifndef std::move<std::bool_constant<true>>
+            ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:29: error: ‘bool_constant’ is not a member of ‘std’
+   return ((int*)(&std::move<std::bool_constant<true>>))[argc];
+                             ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:29: error: ‘bool_constant’ is not a member of ‘std’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:54: error: expected primary-expression before ‘)’ token
+   return ((int*)(&std::move<std::bool_constant<true>>))[argc];
+                                                      ^
+CMakeFiles/cmTC_7394e.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_7394e.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_7394e.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7394e/fast' failed
+make: *** [cmTC_7394e/fast] Error 2
+
+File /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <utility>
+#include <type_traits>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef std::move<std::bool_constant<true>>
+  return ((int*)(&std::move<std::bool_constant<true>>))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the std::move<std::experimental::bool_constant<true>> exist failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_37c38/fast"
+/usr/bin/make -f CMakeFiles/cmTC_37c38.dir/build.make CMakeFiles/cmTC_37c38.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_37c38.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math  -fPIE   -o CMakeFiles/cmTC_37c38.dir/CheckSymbolExists.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:12: warning: extra tokens at end of #ifndef directive
+ #ifndef std::move<std::experimental::bool_constant<true>>
+            ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:29: error: ‘bool_constant’ is not a member of ‘std::experimental’
+   return ((int*)(&std::move<std::experimental::bool_constant<true>>))[argc];
+                             ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:29: error: ‘bool_constant’ is not a member of ‘std::experimental’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:68: error: expected primary-expression before ‘)’ token
+   return ((int*)(&std::move<std::experimental::bool_constant<true>>))[argc];
+                                                                    ^
+CMakeFiles/cmTC_37c38.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_37c38.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_37c38.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_37c38/fast' failed
+make: *** [cmTC_37c38/fast] Error 2
+
+File /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <utility>
+#include <experimental/type_traits>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef std::move<std::experimental::bool_constant<true>>
+  return ((int*)(&std::move<std::experimental::bool_constant<true>>))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the std::apply<std::negate<int>,std::tuple<int>> exist failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d6718/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d6718.dir/build.make CMakeFiles/cmTC_d6718.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d6718.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math  -fPIE   -o CMakeFiles/cmTC_d6718.dir/CheckSymbolExists.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:12: warning: extra tokens at end of #ifndef directive
+ #ifndef std::apply<std::negate<int>,std::tuple<int>>
+            ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:19: error: ‘apply’ is not a member of ‘std’
+   return ((int*)(&std::apply<std::negate<int>,std::tuple<int>>))[argc];
+                   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:46: error: expected primary-expression before ‘,’ token
+   return ((int*)(&std::apply<std::negate<int>,std::tuple<int>>))[argc];
+                                              ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:61: error: expected primary-expression before ‘>’ token
+   return ((int*)(&std::apply<std::negate<int>,std::tuple<int>>))[argc];
+                                                             ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:63: error: expected primary-expression before ‘)’ token
+   return ((int*)(&std::apply<std::negate<int>,std::tuple<int>>))[argc];
+                                                               ^
+CMakeFiles/cmTC_d6718.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d6718.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_d6718.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d6718/fast' failed
+make: *** [cmTC_d6718/fast] Error 2
+
+File /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <functional>
+#include <tuple>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef std::apply<std::negate<int>,std::tuple<int>>
+  return ((int*)(&std::apply<std::negate<int>,std::tuple<int>>))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the std::experimental::make_array<int,int> exist failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_acbb2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_acbb2.dir/build.make CMakeFiles/cmTC_acbb2.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_acbb2.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math  -fPIE   -o CMakeFiles/cmTC_acbb2.dir/CheckSymbolExists.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:2:30: fatal error: experimental/array: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_acbb2.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_acbb2.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_acbb2.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_acbb2/fast' failed
+make: *** [cmTC_acbb2/fast] Error 2
+
+File /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <experimental/array>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef std::experimental::make_array<int,int>
+  return ((int*)(&std::experimental::make_array<int,int>))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the std::move<std::experimental::detected_t<std::decay_t,int>> exist failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_699b6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_699b6.dir/build.make CMakeFiles/cmTC_699b6.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_699b6.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math  -fPIE   -o CMakeFiles/cmTC_699b6.dir/CheckSymbolExists.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:12: warning: extra tokens at end of #ifndef directive
+ #ifndef std::move<std::experimental::detected_t<std::decay_t,int>>
+            ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:29: error: ‘detected_t’ is not a member of ‘std::experimental’
+   return ((int*)(&std::move<std::experimental::detected_t<std::decay_t,int>>))[argc];
+                             ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:29: error: ‘detected_t’ is not a member of ‘std::experimental’
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:24: error: parse error in template argument list
+   return ((int*)(&std::move<std::experimental::detected_t<std::decay_t,int>>))[argc];
+                        ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:9:77: error: expected primary-expression before ‘)’ token
+   return ((int*)(&std::move<std::experimental::detected_t<std::decay_t,int>>))[argc];
+                                                                             ^
+CMakeFiles/cmTC_699b6.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_699b6.dir/CheckSymbolExists.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_699b6.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_699b6/fast' failed
+make: *** [cmTC_699b6/fast] Error 2
+
+File /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <utility>
+#include <experimental/type_traits>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef std::move<std::experimental::detected_t<std::decay_t,int>>
+  return ((int*)(&std::move<std::experimental::detected_t<std::decay_t,int>>))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the include file gmpxx.h exists failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8a4ff/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8a4ff.dir/build.make CMakeFiles/cmTC_8a4ff.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8a4ff.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math  -fPIE   -o CMakeFiles/cmTC_8a4ff.dir/CheckIncludeFile.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx:1:19: fatal error: gmpxx.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_8a4ff.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8a4ff.dir/CheckIncludeFile.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_8a4ff.dir/CheckIncludeFile.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8a4ff/fast' failed
+make: *** [cmTC_8a4ff/fast] Error 2
+
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Performing C++ SOURCE FILE Test TBB_COMPILE_TEST failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0eb29/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0eb29.dir/build.make CMakeFiles/cmTC_0eb29.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0eb29.dir/src.cxx.o
+/usr/bin/c++   -D_TBB_CPP0X  -std=c++14 -DNDEBUG -O3 -ffast-math -DTBB_COMPILE_TEST -fPIE   -o CMakeFiles/cmTC_0eb29.dir/src.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:2:21: fatal error: tbb/tbb.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_0eb29.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_0eb29.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_0eb29.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0eb29/fast' failed
+make: *** [cmTC_0eb29/fast] Error 2
+
+Source file was:
+
+#include <tbb/tbb.h>
+#include <numeric>
+
+int main()
+{
+  int x[10] = {0};
+  tbb::parallel_for(0,10,[&](int i){ x[i] = i; });
+  return !(std::accumulate(x,x+10,0) == (9*10)/2);
+}
+
+Determining if the include file metis.h exists failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_718e8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_718e8.dir/build.make CMakeFiles/cmTC_718e8.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_718e8.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -fPIE   -o CMakeFiles/cmTC_718e8.dir/CheckIncludeFile.c.o   -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:19: fatal error: metis.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_718e8.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_718e8.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_718e8.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_718e8/fast' failed
+make: *** [cmTC_718e8/fast] Error 2
+
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining if the include file parmetis.h exists failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_501ec/fast"
+/usr/bin/make -f CMakeFiles/cmTC_501ec.dir/build.make CMakeFiles/cmTC_501ec.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_501ec.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -fPIE   -o CMakeFiles/cmTC_501ec.dir/CheckIncludeFile.c.o   -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:22: fatal error: parmetis.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_501ec.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_501ec.dir/CheckIncludeFile.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_501ec.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_501ec/fast' failed
+make: *** [cmTC_501ec/fast] Error 2
+
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Performing C SOURCE FILE Test SUPERLU_MIN_VERSION_4 failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_04971/fast"
+/usr/bin/make -f CMakeFiles/cmTC_04971.dir/build.make CMakeFiles/cmTC_04971.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_04971.dir/src.c.o
+/usr/bin/cc    -DSUPERLU_MIN_VERSION_4 -fPIE   -o CMakeFiles/cmTC_04971.dir/src.c.o   -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.c
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.c:3:25: fatal error: supermatrix.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_04971.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_04971.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_04971.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_04971/fast' failed
+make: *** [cmTC_04971/fast] Error 2
+
+Source file was:
+
+typedef int int_t;
+#include <supermatrix.h>
+#include <slu_util.h>
+int main()
+{
+  SuperLUStat_t stat;
+  stat.expansions=8;
+  return 0;
+}
+Performing C SOURCE FILE Test SUPERLU_MIN_VERSION_4_3 failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5b102/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5b102.dir/build.make CMakeFiles/cmTC_5b102.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5b102.dir/src.c.o
+/usr/bin/cc    -DSUPERLU_MIN_VERSION_4_3 -fPIE   -o CMakeFiles/cmTC_5b102.dir/src.c.o   -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.c
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.c:2:23: fatal error: slu_ddefs.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_5b102.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_5b102.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_5b102.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5b102/fast' failed
+make: *** [cmTC_5b102/fast] Error 2
+
+Source file was:
+
+#include <slu_ddefs.h>
+int main(void)
+{
+  return SLU_DOUBLE;
+}
+Performing C SOURCE FILE Test SUPERLU_MIN_VERSION_5 failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_aed62/fast"
+/usr/bin/make -f CMakeFiles/cmTC_aed62.dir/build.make CMakeFiles/cmTC_aed62.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aed62.dir/src.c.o
+/usr/bin/cc    -DSUPERLU_MIN_VERSION_5 -fPIE   -o CMakeFiles/cmTC_aed62.dir/src.c.o   -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.c
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.c:3:25: fatal error: supermatrix.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_aed62.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_aed62.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_aed62.dir/src.c.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_aed62/fast' failed
+make: *** [cmTC_aed62/fast] Error 2
+
+Source file was:
+
+typedef int int_t;
+#include <supermatrix.h>
+#include <slu_util.h>
+int main(void)
+{
+  GlobalLU_t glu;
+  return 0;
+}
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determining if files sion.h exist failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b4f93/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b4f93.dir/build.make CMakeFiles/cmTC_b4f93.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b4f93.dir/CheckIncludeFiles.c.o
+/usr/bin/cc  -DENABLE_SIONLIB  -fPIE   -o CMakeFiles/cmTC_b4f93.dir/CheckIncludeFiles.c.o   -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:2:18: fatal error: sion.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_b4f93.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_b4f93.dir/CheckIncludeFiles.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_b4f93.dir/CheckIncludeFiles.c.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_b4f93/fast' failed
+make: *** [cmTC_b4f93/fast] Error 2
+
+Source:
+/* */
+#include <sion.h>
+
+
+int main(void){return 0;}
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Performing C++ SOURCE FILE Test DUNE_CV_PTHREAD_TLS_COMPILES failed with the following output:
+Change Dir: /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_de1f9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_de1f9.dir/build.make CMakeFiles/cmTC_de1f9.dir/build
+make[1]: Entering directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_de1f9.dir/src.cxx.o
+/usr/bin/c++     -std=c++14 -DNDEBUG -O3 -ffast-math -DDUNE_CV_PTHREAD_TLS_COMPILES -fPIE   -o CMakeFiles/cmTC_de1f9.dir/src.cxx.o -c /home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:1:1: error: ‘include’ does not name a type
+ include <pthread.h>
+ ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:7:42: error: ‘maxThreads’ was not declared in this scope
+                 static int threadnumber[ maxThreads ];
+                                          ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:8:17: error: ‘pthread_barrier_t’ does not name a type
+                 pthread_barrier_t barrier;
+                 ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx: In function ‘void* setThreadNumber(void*)’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:13:19: error: ‘threadnumber’ was not declared in this scope
+                   threadnumber[ num ] = threadNumber ();
+                   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:14:42: error: ‘barrier’ was not declared in this scope
+                   pthread_barrier_wait( &barrier );
+                                          ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:14:50: error: ‘pthread_barrier_wait’ was not declared in this scope
+                   pthread_barrier_wait( &barrier );
+                                                  ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx: In function ‘int main()’:
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:18:19: error: ‘pthread_t’ was not declared in this scope
+                   pthread_t thread[ maxThreads ];
+                   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:19:28: error: ‘maxThreads’ was not declared in this scope
+                   int num[ maxThreads ];
+                            ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:22:21: error: ‘num’ was not declared in this scope
+                     num[ i ] = i;
+                     ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:23:21: error: ‘threadnumber’ was not declared in this scope
+                     threadnumber[ i ] = -1;
+                     ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:25:42: error: ‘barrier’ was not declared in this scope
+                   pthread_barrier_init( &barrier, 0, maxThreads );
+                                          ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:25:65: error: ‘pthread_barrier_init’ was not declared in this scope
+                   pthread_barrier_init( &barrier, 0, maxThreads );
+                                                                 ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:38: error: ‘thread’ was not declared in this scope
+                     pthread_create (&thread[ i ], 0, &setThreadNumber, (void *) &num[ i ]);
+                                      ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:82: error: ‘num’ was not declared in this scope
+                     pthread_create (&thread[ i ], 0, &setThreadNumber, (void *) &num[ i ]);
+                                                                                  ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:27:90: error: ‘pthread_create’ was not declared in this scope
+                     pthread_create (&thread[ i ], 0, &setThreadNumber, (void *) &num[ i ]);
+                                                                                          ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:30:35: error: ‘thread’ was not declared in this scope
+                     pthread_join (thread[ i ], 0);
+                                   ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:30:49: error: ‘pthread_join’ was not declared in this scope
+                     pthread_join (thread[ i ], 0);
+                                                 ^
+/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp/src.cxx:33:25: error: ‘threadnumber’ was not declared in this scope
+                     if( threadnumber[ i ] != i ) result = 1;
+                         ^
+CMakeFiles/cmTC_de1f9.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_de1f9.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_de1f9.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/munna/dune/dune-2.6.0/dune-mg/build-cmake/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_de1f9/fast' failed
+make: *** [cmTC_de1f9/fast] Error 2
+
+Source file was:
+include <pthread.h>
+                static const int maxThreads = 2 ;
+                static int& threadNumber () {
+                    static __thread int tn;
+                    return tn;
+                }
+                static int threadnumber[ maxThreads ];
+                pthread_barrier_t barrier;
+                static void* setThreadNumber(void *number) {
+                  const int num = *((int*) number);
+                  threadNumber () = num ;
+                  //sleep (1);
+                  threadnumber[ num ] = threadNumber ();
+                  pthread_barrier_wait( &barrier );
+                  return 0;
+                }
+                int main () {
+                  pthread_t thread[ maxThreads ];
+                  int num[ maxThreads ];
+                  for (int i=0; i<maxThreads; ++i )
+                  {
+                    num[ i ] = i;
+                    threadnumber[ i ] = -1;
+                  }
+                  pthread_barrier_init( &barrier, 0, maxThreads );
+                  for( int i=0; i<maxThreads; ++ i)
+                    pthread_create (&thread[ i ], 0, &setThreadNumber, (void *) &num[ i ]);
+
+                  for( int i=0; i<maxThreads; ++ i)
+                    pthread_join (thread[ i ], 0);
+                  int result = 0;
+                  for( int i=0; i<maxThreads; ++i )
+                    if( threadnumber[ i ] != i ) result = 1;
+                  return result;
+                }
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determining location of GMP, GMPxx failed:
+Include directory: GMPXX_INCLUDE_DIR-NOTFOUND
+gmp library directory: GMP_LIB-NOTFOUND
+gmpxx library directory: GMPXX_LIB-NOTFOUND
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of psurface failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+
+Determing location of ParMETIS failed:
+Include directory: PARMETIS_INCLUDE_DIR-NOTFOUND
+ParMETIS library directory: ParMETIS_LIBRARY-NOTFOUND
+Header metis.h: FALSE
+
+Determining location of SuperLU failed:
+Include directory: 
+Library directory: 
+Found unsupported version: SuperLU < 4.0
+
+Determing location of ARPACK failed:
+Libraries to link against: 
+
+Determing location of ARPACK++ failed:
+Include directory: 
+Libraries to link against: 
+
+Determing location of SIONLIB failed:
+Include directory: 
+Library directory: 
+
+Determing location of METIS failed:
+Include directory: 
+Library directory: 
+

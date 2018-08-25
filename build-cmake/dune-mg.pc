@@ -1,0 +1,15 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+CXX=/usr/bin/c++ 
+CC=/usr/bin/cc
+DEPENDENCIES=
+
+Name: dune-mg
+Version: 1.0
+Description: dune-mg module
+URL: http://dune-project.org/
+Requires: dune-common dune-geometry dune-uggrid dune-grid dune-alugrid dune-istl dune-localfunctions dune-typetree dune-functions dune-pdelab
+Libs: -L${libdir}
+Cflags: -I${includedir}
